@@ -3,9 +3,10 @@ USE employees;
 # 1
 SELECT concat(e.first_name, ' ', e.last_name) as full_name, e.emp_no
 From employees e
-WHERE e.hire_date IN (SELECT hire_date
+WHERE e.hire_date = (SELECT hire_date
                       FROM employees
                       WHERE emp_no = 101010);
+# if you are only returning one record then you can use = instead of IN
 
 # 2
 SELECT t.title
